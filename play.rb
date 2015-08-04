@@ -3,7 +3,6 @@ require 'open-uri'
 require 'openssl'
 require 'pry'
 
-url = "https://play.google.com/music/playlist/AMaBXyny4_cMIcBwuI_l3hgC8UBi__3ZJHLIKuQtTavXSgvv1T0l7wMnLKJZMulH5t72PxkupIxcqjX61xLv4nXMRyVqIB3tlw=="
 url = "https://play.google.com/music/preview/pl/AMaBXyny4_cMIcBwuI_l3hgC8UBi__3ZJHLIKuQtTavXSgvv1T0l7wMnLKJZMulH5t72PxkupIxcqjX61xLv4nXMRyVqIB3tlw==?u=0#"
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 doc = Nokogiri::HTML(open( url))
