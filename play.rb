@@ -11,22 +11,14 @@ doc = Nokogiri::HTML(open( url))
 row = doc.xpath("//tr")
 output = ''
 data_vals = row.xpath("//td")
+out_file = File.new("alternative-rock.txt", 'w')
 data_vals.each_with_index do |data, index|
-
     if data.text =~ /^\d+$/
         output += data
         song = data_vals[index+2]
         output += ": #{song.children[0].text} by #{song.children[1].text}" rescue ''
-        puts output
+        out_file.puts output
         output = ''
     end
-
-
-    #if index % 6 == 0 
-        #output += data
-    #elsif index % 6 == 2
-        #output += ": #{data.children[0].text} by #{data.children[1].text}" rescue ''
-        #puts output
-        #output = ''
-    #end
 end
+out_file.close
